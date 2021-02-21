@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+body {
+	margin: 5px 10px 15px 20px;
+}
+
+textarea {
+	width: 400px;
+	height: 350px;
+}
+
+#input_pem_field {
+	width: 410px;
+}
+
+.btn_read_pem {
+	padding: 2px;
+	font-family: "Arial";
+}

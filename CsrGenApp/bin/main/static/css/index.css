@@ -1,0 +1,170 @@
+@charset "UTF-8";
+
+body {
+	margin: 5px 10px 15px 20px;
+}
+
+#countainer {
+	width: 100%;
+}
+
+#header {
+	margin: 3px;
+	width: 100%;
+}
+
+#read_pem_field {
+	margin-bottom:0;
+}
+
+#left {
+	margin:0;
+	width: 48%;
+	float: left;
+}
+
+#subject_field, #extension_field, #san_field, #publickey_field{
+	margin: 8px 3px 3px 3px;
+	border: solid 1px;
+	border-radius: 8px; 
+	box-shadow: 0 0 8px gray;	
+}
+
+#subject_drop, #extension_drop, #san_drop, #publickey_drop {
+	padding: 5px;
+
+} 
+
+#add_subject, #add_extension, #add_san, #add_publickey {
+	margin: 5px;
+}
+
+.add_form {
+	margin: 0;
+	folat: left;
+}
+
+ .add_btn {
+  	padding:0;
+ 	width: 50px;
+ 	height: 30px;
+ 	border-color: #808080;
+ 	background-color: #808080;
+ }
+
+/*
+*right
+*/
+
+#right {
+	margin-right: 10px;
+	width: 50%;
+	float: right;	
+}
+
+#csr_field {
+	display: none;
+}
+
+#subject_drag, #extension_drag, #san_drag{
+	border: solid 1px;
+	border-radius: 8px;
+	box-shadow: 0 0 8px gray; 
+	margin: 8px;
+	width: 100%;
+	
+	visibility: hidden;
+}
+
+#subject_header, #extension_header, #san_header {
+	padding: 5px;
+	height: 40px;
+}
+
+.subject_card, .extension_card, .simple_san_card, .non_simple_san_card, .publickey_card{
+	margin: 5px;
+	width: 220px; 
+	border: 1px solid #800080; 
+	border-radius: 8px; 
+	box-shadow: 0 0 3px gray;	
+	float: left;
+}
+
+.subject_dn, .extension_oid, .san_type, .curve_name {
+	margin: 5px;
+	width:150px;
+	font-size: 14px; 
+	float: left;
+	word-wrap: break-word;
+	
+}
+/* width for text box does not work */
+.subject_value, .san_value, .publickey_size_value, .publickey_value {
+	margin: 5px;  
+	font-size:14px;
+	background-color: #FFFFFF;
+}
+
+.extension_value, .publickey_textarea_value {
+	margin: 5px;
+	width: 200px; 
+	height: 80px;
+	font-size:10px;
+}
+
+#generate_pem_field {
+	text-align: right;
+}
+
+#csr {
+	width: 80%;
+	height: 400px;
+	font-size: 12px;
+	line-height: 1;
+	box-shadow: 0 0 8px gray;
+}
+
+#footer {
+	clear: both;
+	margin: 3px;
+	width: 100%;
+}
+
+/*
+ * button
+ */
+ .btn_read_pem {
+ 	margin-bottom: 0;
+ 	padding: 2px;
+ 	font-family: "Arial";
+ 	box-shadow: 0 0 3px gray;
+ }
+ 
+ .btn_generate_pem {
+ 	padding: 2px;
+ 	font-family: "Arial";
+ 	box-shadow: 0 0 3px gray;
+}
+ 
+ .btn_add_all {
+ 	margin-bottom:0;
+ 	padding: 0 5px 0 5px;
+ 	height: 30px;
+ 	float: right;	
+ 	visibility: hidden;
+ 	font-family: "Arial";
+ 	box-shadow: 0 0 3px gray;	
+ }
+ 
+ .btn_add {
+ 	padding: 0 5px 0 5px;
+ 	height: 30px;
+ 	font-family: "Arial";
+ 	box-shadow: 0 0 3px gray;	
+ }
+ 
+ .delete_btn {
+ 	margin: 5px;
+ 	padding: 0 5px 0 5px;
+ 	float: right;
+ }

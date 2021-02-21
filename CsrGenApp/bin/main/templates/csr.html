@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+<link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+<link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
+ 
+<script src="/js/index.js" th:src="@{/js/index.js}"></script>
+</head>
+<body>
+
+<div id="countainer">
+	<div id="output_pem_field">
+		<textarea id="pem" name="pem"></textarea>
+	</div>
+</div>
+
+<script>
+	window.addEventListener('message', getCsr, false);
+	console.log('called');
+	function getCsr(e) {
+		alert(e)
+	}
+</script>
+
+</body>
+</html>

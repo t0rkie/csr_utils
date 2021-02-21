@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- milligram cdn -->
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+<link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+<link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
+ 
+<link href="/css/field.css" th:href="@{/css/field.css}" rel="stylesheet"></link>
+<script src="/js/index.js" th:src="@{/js/index.js}"></script>
+</head>
+<body>
+
+
+<div id="countainer">
+
+	<div id="input_pem_field">
+		<textarea id="pem" name="pem" placeholder="certificate pem"></textarea>
+		<button class="btn_read_pem" onclick="readPem();">Read Pem</button>
+		<input type="radio" id="your_pem" name="input_csr" onclick="selectType(id);" checked>use your own
+		<input type="radio" id="ov" name="input_csr" onclick="selectType(id);" >OV
+		<input type="radio" id="ev" name="input_csr" onclick="selectType(id);">EV
+	</div>
+	
+	
+	
+</div>
+
+</body>
+</html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- milligram cdn -->
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+<link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+<link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
+
+<link href="/css/home.css" th:href="@{/css/index.css}" rel="stylesheet"></link>
+<script src="/js/home.js" th:src="@{/js/index.js}"></script>
+</head>
+<body>
+
+<div id="countainer">
+	<div id="header">
+		<div id="read_pem_field">
+			<button class="btn_read_pem" onclick="openWindow();">read PEM</button>
+			<button class="btn_add_all" onclick="addAllCards(null);">add all</button>
+		</div>
+	</div>
+		<div id="left">
+		
+			<div id="drop_field" ondragover="dragover(event);" ondrop="drop(event);">	
+				<div id="subject_field">
+					<div id="subject_drop">
+						<h4>Subject</h4>
+					</div>
+					
+					<div style="clear: both;"></div>
+					<br>
+					<div id="add_subject">
+						<form class="add_form" name="add_subject">
+							<input type="text" class="input_key" name="key" list="dn" placeholder="enter DN" style="width: 150px;">
+							<datalist id="dn">
+								<option value="c"></option>
+								<option value="o"></option>
+								<option value="t"></option>
+								<option value="ou"></option>
+								<option value="cn"></option>
+								<option value="l"></option>
+								<option value="st"></option>
+								<option value="sn"></option>
+								<option value="serialnumber"></option>
+								<option value="street"></option>
+								<option value="emailaddress"></option>
+								<option value="dc"></option>
+								<option value="e"></option>
+								<option value="uid"></option>
+								<option value="surname"></option>
+								<option value="givenname"></option>
+								<option value="initials"></option>
+								<option value="generation"></option>
+								<option value="unstructuredaddress"></option>
+								<option value="unstructuredname"></option>
+								<option value="uniqueidentifier"></option>
+								<option value="dn"></option>
+								<option value="pseudonym"></option>
+								<option value="postaladdress"></option>
+								<option value="nameofbirth"></option>
+								<option value="countryofcitizenship"></option>
+								<option value="countryofresidence"></option>
+								<option value="gender"></option>
+								<option value="placeofbirth"></option>
+								<option value="dateofbirth"></option>
+								<option value="postalcode"></option>
+								<option value="businesscategory"></option>
+								<option value="telephonenumber"></option>
+								<option value="name"></option>
+								<option value="organizationidentifier"></option>
+							</datalist>
+							<input type="text" class="input_value" name="value" placeholder="enter value" style="width: 220px;">
+						</form>
+						<button class="btn_add" name="subject_drop" onclick="addCard(this, name);">add</button>
+					</div>
+				</div>
+				
+				<div id="extension_field">
+					<div id="extension_drop">
+						<h4>Extension</h4>
+					</div>
+					
+					<div style="clear: both;"></div>
+					<br>
+					<div id="add_extension">
+						<form class="add_form" name="add_extension">
+							<input type="text" class="input_key" name="key" placeholder="enter OID" style="width: 150px; vertical-align: top;">
+							<select class="input_key" name="key" style="width: 150px;">
+								<option>false</option>
+								<option>true</option>
+							</select>
+							<textarea class="input_value" name="value" placeholder="enter value" style="width: 220px; height: 80px; vertical-align: top;"></textarea>
+						</form>
+						<button class="btn_add" name="extension_drop" onclick="addCard(this, name);" style="vertical-align: bottom;">add</button>
+					</div>
+				</div>
+
+				<div id="san_field">
+					<div id="san_drop">
+					<h4>Subject Alternative Name</h4>
+					</div>
+					
+					<div style="clear: both;"></div>
+					<br>
+					<div id="add_san">
+						<form class="add_form" name="add_san">
+							<select class="input_key" name="key" style="width: 150px;">
+								<option value="0" disabled="disabled">otherName</option>
+								<option value="1">rfc822Name</option>
+								<option value="2">dNSName</option>
+								<option value="3" disabled="disabled">x400Adress</option>
+								<option value="4" disabled="disabled">directoryName</option>
+								<option value="5" disabled="disabled">ediPartyName</option>
+								<option value="6">uniformResourceIdentifier</option>
+								<option value="7">iPAddress</option>
+								<option value="8">registeredID</option>
+							</select>
+							<input type="text" id="input_san_value" class="input_value" name="value" placeholder="enter value" style="width: 220px;">
+							<input type="text" id="input_san_value_for_dn" class="input_key" name="dn_value" list="dn_for_san" placeholder="enter DN" style="width: 220px; display: none;">
+								<datalist id="dn_for_san">
+									<option value="c="></option>
+									<option value="o="></option>
+									<option value="t="></option>
+									<option value="ou="></option>
+									<option value="cn="></option>
+									<option value="l="></option>
+									<option value="st="></option>
+									<option value="sn="></option>
+									<option value="serialnumber="></option>
+									<option value="street="></option>
+									<option value="emailaddress="></option>
+									<option value="dc="></option>
+									<option value="e="></option>
+									<option value="uid="></option>
+									<option value="surname="></option>
+									<option value="givenname="></option>
+									<option value="initials="></option>
+									<option value="generation="></option>
+									<option value="unstructuredaddress="></option>
+									<option value="unstructuredname="></option>
+									<option value="uniqueidentifier="></option>
+									<option value="dn="></option>
+									<option value="pseudonym="></option>
+									<option value="postaladdress="></option>
+									<option value="nameofbirth="></option>
+									<option value="countryofcitizenship="></option>
+									<option value="countryofresidence="></option>
+									<option value="gender="></option>
+									<option value="placeofbirth="></option>
+									<option value="dateofbirth="></option>
+									<option value="postalcode="></option>
+									<option value="businesscategory="></option>
+									<option value="telephonenumber="></option>
+									<option value="name="></option>
+									<option value="organizationidentifier="></option>
+								</datalist>
+						</form>
+						<button class="btn_add" name="san_drop" onclick="addCard(this, name)">add</button>
+					</div>
+					
+				</div>
+				<div id="publickey_field">
+					<div id="publickey_drop">
+						<h4>Public Key</h4>
+					</div>
+					<div style="clear: both;"></div>
+					<div id="add_publickey">
+						<div>
+							<input type="radio" name="option" onclick="changeDisplayValue(publickey_spec, publickey_key);">create new key	
+							<input type="radio" name="option" onclick="changeDisplayValue(publickey_key, publickey_spec);">use your own key
+						</div>
+						
+						<div id="publickey_spec" style="display: none;">
+							<form class="add_form" name="choose_algorithm">
+								<input type="radio" value="RSA" name="publickey" onclick="changeDisplayValue(publickey_size, curve_name);" checked>RSA
+								<input type="radio" value="EC" name="publickey" onclick="changeDisplayValue(curve_name, publickey_size);">ECC
+							</form>
+							<form class="add_form" name="add_publickey_spec">
+								<input type="text" id="publickey_size" class="input_value" name="publickey_size" placeholder="key size(at least 512 bits long)" style="width: 220px;">
+								<select id="curve_name" class="input_key" name="curve_name" style="width: 150px; float: left; display: none;">
+									<option>prime192v1</option>
+									<option>prime192v2</option>
+									<option>prime192v3</option>
+									<option>prime239v1</option>
+									<option>prime239v2</option>
+									<option>prime239v3</option>
+									<option>prime256v1</option>
+									<option>secp192k1</option>
+									<option>secp192r1</option>
+									<option>secp224k1</option>
+									<option>secp224r1</option>
+									<option>secp256k1</option>
+									<option>secp256r1</option>
+									<option>secp384r1</option>
+									<option>secp521r1</option>
+									<option>P-224</option>
+									<option>P-256</option>
+									<option>P-384</option>
+									<option>P-521</option>
+									<option>c2pnb163v1</option>
+									<option>c2pnb163v2</option>
+									<option>c2pnb163v3</option>
+									<option>c2pnb176w1</option>
+									<option>c2tnb191v1</option>
+									<option>c2tnb191v2	</option>
+									<option>c2tnb191v3</option>
+									<option>c2pnb208w1</option>
+									<option>c2tnb239v1</option>
+									<option>c2tnb239v2</option>
+									<option>c2tnb239v3</option>
+									<option>c2pnb272w1</option>
+									<option>c2pnb304w1</option>
+									<option>c2tnb359v1</option>
+									<option>c2pnb368w1</option>
+									<option>c2tnb431r1</option>
+									<option>sect163k1</option>
+									<option>sect163r1</option>
+									<option>sect163r2</option>
+									<option>sect193r1</option>
+									<option>sect193r2</option>
+									<option>sect233k1</option>
+									<option>sect233r1</option>
+									<option>sect239k1</option>
+									<option>sect283k1</option>
+									<option>sect283r1</option>
+									<option>sect409k1</option>
+									<option>sect409r1</option>
+									<option>sect571k1</option>
+									<option>sect571r1</option>
+									<option>B-163</option>
+									<option>B-233</option>
+									<option>B-283</option>
+									<option>B-409</option>
+									<option>B-571</option>
+									<option>brainpoolp160r1</option>
+									<option>brainpoolp160t1</option>
+									<option>brainpoolp192r1</option>
+									<option>brainpoolp192t1</option>
+									<option>brainpoolp224r1</option>
+									<option>brainpoolp224t1</option>
+									<option>brainpoolp256r1</option>
+									<option>brainpoolp256t1</option>
+									<option>brainpoolp320r1</option>
+									<option>brainpoolp320t1</option>
+									<option>brainpoolp384r1</option>
+									<option>brainpoolp384t1</option>
+									<option>brainpoolp512r1</option>
+									<option>brainpoolp512t1</option>
+									<option>GostR3410-2001-CryptoPro-A</option>
+									<option>GostR3410-2001-CryptoPro-XchB</option>
+									<option>GostR3410-2001-CryptoPro-XchA</option>
+									<option>GostR3410-2001-CryptoPro-C</option>
+									<option>GostR3410-2001-CryptoPro-B</option>
+								</select>
+							</form>
+						</div>
+						
+						<div id="publickey_key" style="display: none;">
+							<form class="add_form" name="add_publickey">
+								<textarea id="publickey" name="value" placeholder="enter your key"></textarea>
+							</form>
+						</div>
+						
+						<div style="clear: both;"></div>
+						<button id="btn_spec" class="btn_add" name="publickey_drop" onclick="addPublicKey(add_publickey_spec, choose_algorithm);">add</button>
+						<button id="btn_key" class="btn_add" name="publickey_drop" onclick="addPublicKey(add_publickey, null);" style="display: none;">add</button>
+					</div>
+				</div>
+			</div>
+			
+			<div style="clear: both;"></div>
+			
+			<div id="generate_pem_field">
+				<button class="btn_generate_pem" onclick="generateCsr();">generate CSR</button>
+			</div>	
+		</div>
+
+		<div id="right">
+			<div id="csr_field">
+				<h3>CSR</h3>
+			</div>
+			<div id="subject_drag">
+				<div id="subject_header">
+					<h>Subject</h>
+					<button class="btn_add_all" name="subject_card" onclick="addAllCards(name);">add all</button>
+				</div>
+			</div>
+			
+			<div style="clear: both;"></div>
+
+			<div id="extension_drag">
+				<div id="extension_header">
+					<h>Extension</h>
+					<button class="btn_add_all" name="extension_card" onclick="addAllCards(name);">add all</button>
+				</div>
+			</div>
+			
+			<div style="clear: both;"></div>
+			
+			<div id="san_drag">
+				<div id="san_header">
+					<h>SubjectAlternativeName</h>
+					<button class="btn_add_all" name="simple_san_card" onclick="addAllCards(name);">add all</button>	
+				</div>
+			</div>
+			
+			<div style="clear: both;"></div>
+		</div>
+	
+		<div id="footer">
+		</div>
+
+</div>
+
+</body>
+</html>
